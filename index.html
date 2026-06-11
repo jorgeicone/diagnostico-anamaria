@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diagnóstico IA · Ana María Martínez | ICONE ialabs</title>
+  <title>Diagnóstico IA · Ana Maria Hincapié | ICONE ialabs</title>
   <style>
     :root {
       --navy:   #050d1f;
@@ -31,16 +31,13 @@
     }
     .wrap { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 32px 20px 80px; }
 
-    /* ---- VIEWS ---- */
     .view { display: none; }
     .view.active { display: block; }
 
-    /* ---- GRADIENT TEXT ---- */
     .gt { background: linear-gradient(135deg, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    /* ---- HEADER ---- */
     .logo-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
-    .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); cursor: pointer; }
     .logo-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); text-transform: uppercase; }
 
     /* ---- INTRO ---- */
@@ -48,8 +45,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
       color: var(--cyan); padding: 6px 16px; border-radius: 50px;
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
-      margin-bottom: 28px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 28px;
     }
     .intro-badge span { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
@@ -57,112 +53,58 @@
     .intro-title { font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
     .intro-sub { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 36px; }
     .dims-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
-    .dim-chip {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 14px 16px;
-      font-size: 0.82rem; font-weight: 600; line-height: 1.35;
-    }
+    .dim-chip { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 0.82rem; font-weight: 600; line-height: 1.35; }
     .dim-chip .chip-num { font-size: 0.7rem; opacity: 0.5; display: block; margin-bottom: 4px; }
     .intro-meta { display: flex; gap: 24px; margin-bottom: 40px; }
     .meta-item { text-align: center; }
     .meta-val { font-size: 1.6rem; font-weight: 900; display: block; }
     .meta-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
 
-    /* ---- FORM (datos personales) ---- */
+    /* ---- FORM ---- */
     .form-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
     .form-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
     .field { margin-bottom: 18px; }
     .field label { display: block; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
-    .field input {
-      width: 100%; background: rgba(255,255,255,0.06);
-      border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px;
-      padding: 14px 16px; color: #fff; font-size: 0.95rem;
-      outline: none; transition: border-color .2s, box-shadow .2s;
-    }
+    .field input { width: 100%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px; padding: 14px 16px; color: #fff; font-size: 0.95rem; outline: none; transition: border-color .2s, box-shadow .2s; }
     .field input:focus { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,212,255,.14); }
     .field input::placeholder { color: rgba(255,255,255,0.3); }
 
     /* ---- QUIZ ---- */
-    .prog-bar { background: rgba(255,255,255,.08); border-radius: 50px; height: 5px; margin-bottom: 8px; position: relative; overflow: hidden; }
+    .prog-bar { background: rgba(255,255,255,.08); border-radius: 50px; height: 5px; margin-bottom: 8px; overflow: hidden; }
     .prog-fill { height: 100%; border-radius: 50px; transition: width .5s ease; }
     .prog-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
-    .dim-label {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; padding: 5px 14px; border-radius: 50px;
-      margin-bottom: 16px;
-    }
+    .dim-label { display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; }
     .q-text { font-size: 1.12rem; font-weight: 700; line-height: 1.5; margin-bottom: 24px; }
     .options { display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
-    .opt {
-      background: var(--card); border: 1.5px solid rgba(255,255,255,0.1);
-      border-radius: 13px; padding: 16px 18px; cursor: pointer;
-      font-size: 0.9rem; line-height: 1.45; color: rgba(255,255,255,0.85);
-      transition: all .2s; text-align: left;
-    }
+    .opt { background: var(--card); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 13px; padding: 16px 18px; cursor: pointer; font-size: 0.9rem; line-height: 1.45; color: rgba(255,255,255,0.85); transition: all .2s; text-align: left; }
     .opt:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.07); }
     .opt.selected { color: #fff; }
     .q-nav { display: flex; gap: 12px; }
 
     /* ---- BUTTONS ---- */
-    .btn {
-      display: inline-block; padding: 15px 32px; border-radius: 12px;
-      font-weight: 700; font-size: 0.95rem; cursor: pointer;
-      border: none; transition: all .2s; text-align: center;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      color: #fff; width: 100%;
-    }
+    .btn { display: inline-block; padding: 15px 32px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none; transition: all .2s; text-align: center; }
+    .btn-primary { background: linear-gradient(135deg, var(--cyan), var(--purple)); color: #fff; width: 100%; }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-secondary {
-      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.15);
-    }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
     .btn-secondary:hover { background: rgba(255,255,255,0.13); }
     .btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
     /* ---- SAVING ---- */
     .saving-wrap { text-align: center; padding: 60px 0; }
-    .saving-spin {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 3px solid rgba(0,212,255,0.2);
-      border-top-color: var(--cyan);
-      animation: spin 1s linear infinite;
-      margin: 0 auto 28px;
-    }
+    .saving-spin { width: 56px; height: 56px; border-radius: 50%; border: 3px solid rgba(0,212,255,0.2); border-top-color: var(--cyan); animation: spin 1s linear infinite; margin: 0 auto 28px; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ---- RESULT ---- */
     .result-hero { text-align: center; margin-bottom: 36px; }
-    .result-score-ring {
-      width: 160px; height: 160px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; margin: 0 auto 24px;
-      border: 3px solid transparent;
-    }
+    .result-score-ring { width: 160px; height: 160px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 0 auto 24px; }
     .result-score-val { font-size: 3.2rem; font-weight: 900; line-height: 1; }
     .result-score-pct { font-size: 1.1rem; opacity: 0.6; }
-    .result-level-badge {
-      display: inline-block; padding: 8px 24px; border-radius: 50px;
-      font-weight: 700; font-size: 0.9rem; margin-bottom: 16px;
-    }
+    .result-level-badge { display: inline-block; padding: 8px 24px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 16px; }
     .result-title { font-size: 1.55rem; font-weight: 900; margin-bottom: 12px; }
     .result-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
 
-    .dims-chart { margin: 32px 0; }
-    .dim-row { display: grid; grid-template-columns: 38px 1fr 42px; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .dim-row-num { font-size: 0.75rem; font-weight: 800; text-align: right; opacity: 0.6; }
-    .dim-track { background: rgba(255,255,255,.07); border-radius: 50px; height: 9px; overflow: hidden; position: relative; }
-    .dim-bar { height: 100%; border-radius: 50px; transition: width 1.2s ease; }
-    .dim-row-val { font-size: 0.8rem; font-weight: 700; }
-    .dim-name { font-size: 0.78rem; color: rgba(255,255,255,.55); margin-top: 2px; }
-
     .dims-detail { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .dim-card {
-      background: var(--card); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px; padding: 16px 18px;
-    }
+    .dim-card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px 18px; }
     .dim-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
     .dim-card-name { font-size: 0.88rem; font-weight: 700; }
     .dim-card-score { font-size: 0.9rem; font-weight: 800; }
@@ -170,29 +112,18 @@
     .dim-card-fill { height: 100%; border-radius: 50px; }
     .dim-card-tip { font-size: 0.8rem; color: rgba(255,255,255,.5); margin-top: 8px; line-height: 1.5; }
 
-    .result-cta {
-      background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.25);
-      border-radius: 18px; padding: 28px; text-align: center; margin-bottom: 24px;
-    }
+    .result-cta { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.25); border-radius: 18px; padding: 28px; text-align: center; margin-bottom: 24px; }
     .result-cta h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
     .result-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.6; }
-    .btn-restart {
-      background: transparent; border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.55); padding: 10px 24px; border-radius: 8px;
-      font-size: 0.82rem; cursor: pointer; margin-top: 12px;
-      transition: all .2s;
-    }
+    .btn-restart { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55); padding: 10px 24px; border-radius: 8px; font-size: 0.82rem; cursor: pointer; margin-top: 12px; transition: all .2s; }
     .btn-restart:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
 
     /* ---- ADMIN ---- */
-    .admin-login-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; padding: 36px; max-width: 400px; margin: 60px auto;
-    }
+    .admin-login-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; max-width: 400px; margin: 60px auto; }
     .admin-login-card h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
     .admin-login-card p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
     .admin-err { color: var(--red); font-size: 0.82rem; margin-top: 10px; display: none; }
-    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
     .admin-header h2 { font-size: 1.4rem; font-weight: 800; }
     .btn-sm { padding: 8px 18px; font-size: 0.8rem; border-radius: 8px; }
     .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 28px; }
@@ -205,85 +136,71 @@
     tbody tr:hover td { background: rgba(255,255,255,0.03); }
     .level-pill { display: inline-block; padding: 3px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 700; }
 
-    .admin-link { position: fixed; bottom: 20px; right: 20px; opacity: 0; font-size: 0; width: 14px; height: 14px; }
     @media(max-width:520px){ .dims-preview{grid-template-columns:1fr;} .intro-meta{gap:16px;} .stats-grid{grid-template-columns:1fr 1fr;} }
   </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
-
 <div class="wrap">
 
   <!-- ========== INTRO ========== -->
   <div id="v-intro" class="view active">
     <div class="logo-bar">
-      <div class="logo-dot"></div>
+      <div class="logo-dot" id="logo-dot"></div>
       <span class="logo-text">ICONE ialabs · Acompañamiento Estratégico</span>
     </div>
 
     <div class="intro-badge"><span></span> Diagnóstico Personalizado · 2026</div>
 
     <h1 class="intro-title">
-      Tu Madurez en<br>
+      Tu Potencial con<br>
       <span class="gt">Inteligencia Artificial</span><br>
-      como Líder de Datos
+      como Líder de Ventas
     </h1>
 
     <p class="intro-sub">
-      Diseñado específicamente para <strong>Ana María Martínez Puentes</strong> —
-      BI Coordinator en Merz Colombia. Descubre en 8 minutos tu nivel real
-      de adopción de IA y los pasos concretos para potenciar tu impacto como
-      líder data-driven en la industria estética.
+      Diseñado específicamente para <strong>Ana Maria Hincapié Narvaez</strong> —
+      Sales Manager en Merz Aesthetics. Descubre en 8 minutos tu nivel real
+      de adopción de IA, qué herramientas te cambian el juego hoy y cómo
+      construir un ecosistema a tu medida para liderar con más impacto y menos fricción.
     </p>
 
     <div class="intro-meta">
-      <div class="meta-item">
-        <span class="meta-val gt">25</span>
-        <span class="meta-lbl">Preguntas</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-val gt">5</span>
-        <span class="meta-lbl">Dimensiones</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-val gt">8'</span>
-        <span class="meta-lbl">Tiempo</span>
-      </div>
+      <div class="meta-item"><span class="meta-val gt">25</span><span class="meta-lbl">Preguntas</span></div>
+      <div class="meta-item"><span class="meta-val gt">5</span><span class="meta-lbl">Dimensiones</span></div>
+      <div class="meta-item"><span class="meta-val gt">8'</span><span class="meta-lbl">Tiempo</span></div>
     </div>
-
 
     <div class="dims-preview">
       <div class="dim-chip" style="border-left:3px solid var(--cyan)">
         <span class="chip-num">DIM 1</span>
-        IA para BI & Análisis de Datos
+        Fundamentos de IA & Herramientas
       </div>
       <div class="dim-chip" style="border-left:3px solid var(--purple)">
         <span class="chip-num">DIM 2</span>
-        Automatización de Procesos
+        Gestión y Seguimiento del Equipo
       </div>
       <div class="dim-chip" style="border-left:3px solid var(--orange)">
         <span class="chip-num">DIM 3</span>
-        IA Generativa en el Trabajo
+        Presentaciones & Business Reviews
       </div>
       <div class="dim-chip" style="border-left:3px solid var(--green)">
         <span class="chip-num">DIM 4</span>
-        Liderazgo & Estrategia con IA
+        Automatización del Día a Día
       </div>
       <div class="dim-chip" style="border-left:3px solid var(--red); grid-column:1/-1">
         <span class="chip-num">DIM 5</span>
-        IA en Estética/Farma LATAM
+        Construcción de tu Ecosistema IA
       </div>
     </div>
 
-    <button class="btn btn-primary" onclick="showView('v-form')">
-      Comenzar diagnóstico →
-    </button>
+    <button class="btn btn-primary" onclick="showView('v-form')">Comenzar diagnóstico →</button>
   </div>
 
   <!-- ========== FORM ========== -->
   <div id="v-form" class="view">
     <div class="logo-bar">
-      <div class="logo-dot"></div>
+      <div class="logo-dot" id="logo-dot-2"></div>
       <span class="logo-text">ICONE ialabs · Diagnóstico IA</span>
     </div>
     <h2 class="form-title">Cuéntame un poco sobre ti</h2>
@@ -291,24 +208,22 @@
 
     <div class="field">
       <label>Nombre completo *</label>
-      <input type="text" id="f-nombre" placeholder="Tu nombre completo" value="Ana María Martínez Puentes">
+      <input type="text" id="f-nombre" placeholder="Tu nombre completo" value="Ana Maria Hincapié Narvaez">
     </div>
     <div class="field">
       <label>Correo electrónico *</label>
       <input type="email" id="f-email" placeholder="tu@email.com">
     </div>
     <div class="field">
-      <label>Empresa / Organización</label>
-      <input type="text" id="f-empresa" placeholder="Nombre de tu empresa" value="Merz Colombia">
+      <label>Empresa</label>
+      <input type="text" id="f-empresa" placeholder="Nombre de tu empresa" value="Merz Aesthetics">
     </div>
     <div class="field">
-      <label>Cargo / Rol</label>
-      <input type="text" id="f-cargo" placeholder="Tu cargo actual" value="BI Coordinator">
+      <label>Cargo</label>
+      <input type="text" id="f-cargo" placeholder="Tu cargo actual" value="Sales Manager">
     </div>
 
-    <button class="btn btn-primary" onclick="startQuiz()" style="margin-top:8px">
-      Ir al diagnóstico →
-    </button>
+    <button class="btn btn-primary" onclick="startQuiz()" style="margin-top:8px">Ir al diagnóstico →</button>
   </div>
 
   <!-- ========== QUIZ ========== -->
@@ -317,15 +232,11 @@
       <div class="logo-dot"></div>
       <span class="logo-text">ICONE ialabs · Diagnóstico IA</span>
     </div>
-    <div class="prog-bar">
-      <div class="prog-fill" id="prog-fill"></div>
-    </div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
     <div class="prog-label" id="prog-label">Pregunta 1 de 25</div>
-
     <div class="dim-label" id="dim-label"></div>
     <div class="q-text" id="q-text"></div>
     <div class="options" id="options"></div>
-
     <div class="q-nav">
       <button class="btn btn-secondary" id="btn-prev" onclick="prevQ()" style="flex:0 0 auto;padding:14px 20px">←</button>
       <button class="btn btn-primary" id="btn-next" onclick="nextQ()" style="flex:1">Siguiente →</button>
@@ -337,7 +248,7 @@
     <div class="saving-wrap">
       <div class="saving-spin"></div>
       <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:10px">Analizando tus respuestas</h2>
-      <p style="color:rgba(255,255,255,0.55);font-size:0.9rem">Calculando tu perfil de madurez en IA...</p>
+      <p style="color:rgba(255,255,255,0.55);font-size:0.9rem">Construyendo tu perfil de liderazgo con IA...</p>
     </div>
   </div>
 
@@ -347,7 +258,6 @@
       <div class="logo-dot"></div>
       <span class="logo-text">ICONE ialabs · Tus Resultados</span>
     </div>
-
     <div class="result-hero">
       <div class="result-score-ring" id="res-ring">
         <span class="result-score-val gt" id="res-score">--</span>
@@ -357,25 +267,13 @@
       <h2 class="result-title" id="res-title">--</h2>
       <p class="result-desc" id="res-desc">--</p>
     </div>
-
-    <h3 style="font-size:1rem;font-weight:800;margin-bottom:16px;color:rgba(255,255,255,0.7)">
-      Resultado por dimensión
-    </h3>
+    <h3 style="font-size:1rem;font-weight:800;margin-bottom:16px;color:rgba(255,255,255,0.7)">Resultado por dimensión</h3>
     <div class="dims-detail" id="dims-detail"></div>
-
     <div class="result-cta">
-      <h3>¿Lista para convertir estos insights en acción?</h3>
-      <p>
-        Este diagnóstico es el punto de partida de tu acompañamiento estratégico con Jorge Hugo Pérez.
-        Con base en tus resultados, diseñaremos un plan personalizado para que lideres
-        la adopción de IA en Merz Aesthetics LATAM.
-      </p>
-      <a href="https://wa.me/573173371438?text=Hola%20Jorge%2C%20terminé%20mi%20diagnóstico%20de%20IA%20y%20quiero%20revisar%20los%20resultados"
-         target="_blank" class="btn btn-primary" style="display:block;text-decoration:none;">
-        Hablar con Jorge Hugo →
-      </a>
+      <h3>¿Lista para que la IA trabaje para ti?</h3>
+      <p>Este diagnóstico es el punto de partida de tu acompañamiento estratégico con Jorge Hugo Pérez. Vamos a construir juntos el ecosistema de IA que necesitas: para tu equipo, tus presentaciones y tu liderazgo en Merz.</p>
+      <a href="https://wa.me/573173371438?text=Hola%20Jorge%2C%20terminé%20mi%20diagnóstico%20de%20IA%20y%20quiero%20revisar%20los%20resultados" target="_blank" class="btn btn-primary" style="display:block;text-decoration:none;">Hablar con Jorge Hugo →</a>
     </div>
-
     <button class="btn-restart" onclick="restart()">↺ Repetir diagnóstico</button>
   </div>
 
@@ -396,27 +294,24 @@
   <!-- ========== ADMIN PANEL ========== -->
   <div id="v-admin" class="view">
     <div class="admin-header">
-      <h2>Panel · Ana María</h2>
+      <h2>Panel · Ana Maria H.</h2>
       <div style="display:flex;gap:10px">
         <button class="btn btn-secondary btn-sm" onclick="exportCSV()">Exportar CSV</button>
         <button class="btn btn-secondary btn-sm" onclick="showView('v-intro')">← Salir</button>
       </div>
     </div>
-
     <div class="stats-grid" id="stats-grid">
       <div class="stat-card"><span class="stat-val gt" id="st-total">--</span><span class="stat-lbl">Respuestas</span></div>
-      <div class="stat-card"><span class="stat-val" id="st-avg" style="color:var(--cyan)">--</span><span class="stat-lbl">Puntaje Promedio</span></div>
-      <div class="stat-card"><span class="stat-val" id="st-top" style="color:var(--green)">--</span><span class="stat-lbl">Puntaje Máximo</span></div>
+      <div class="stat-card"><span class="stat-val" id="st-avg" style="color:var(--cyan)">--</span><span class="stat-lbl">Prom. Total</span></div>
+      <div class="stat-card"><span class="stat-val" id="st-top" style="color:var(--green)">--</span><span class="stat-lbl">Máximo</span></div>
     </div>
-
     <div style="overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:4px">
       <table id="admin-table">
         <thead>
           <tr>
             <th>#</th><th>Nombre</th><th>Email</th><th>Empresa</th>
             <th>Total</th><th>Nivel</th>
-            <th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D5</th>
-            <th>Fecha</th>
+            <th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D5</th><th>Fecha</th>
           </tr>
         </thead>
         <tbody id="admin-tbody"></tbody>
@@ -426,284 +321,281 @@
 
 </div>
 
-<!-- Admin secret link -->
-<div class="admin-link" onclick="showView('v-admin-login')"></div>
-
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────
+// ── CONFIG ────────────────────────────────────────────────────────────────
 const SUPABASE_URL  = 'https://nvgkhdrrxqdgxktfkioa.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52Z2toZHJyeHFkZ3hrdGZraW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MzY4MjYsImV4cCI6MjA5MzQxMjgyNn0.mikJZpOf6pIupH1w_hFlMIzCoOMB-wJCMJHyP46YLeg';
 const TABLE         = 'diagnostico_anamaria';
 const ADMIN_PASS    = 'Diagnosticos2026';
 
-// ── DIMENSIONES ─────────────────────────────────────────────────────────
+// ── DIMENSIONES ──────────────────────────────────────────────────────────
 const DIMS = [
-  { id:1, name:'IA para BI & Datos',          short:'BI & Datos',    color:'#00d4ff', tip:'Integra herramientas de IA en tu stack de análisis y modelos predictivos.' },
-  { id:2, name:'Automatización de Procesos',  short:'Automatización', color:'#7b2fff', tip:'Automatiza reportes, ETL y distribución de datos con IA para liberar tiempo estratégico.' },
-  { id:3, name:'IA Generativa Diaria',        short:'IA Generativa',  color:'#ff8c00', tip:'Domina el prompting y las herramientas de GenAI para multiplicar tu productividad.' },
-  { id:4, name:'Liderazgo & Estrategia',      short:'Liderazgo',      color:'#00d48a', tip:'Posiciónate como referente de IA en Merz y lidera iniciativas de datos con impacto.' },
-  { id:5, name:'IA en Estética/Farma LATAM',  short:'Industria',      color:'#ff4757', tip:'Aplica IA a los retos específicos del mercado de estética médica en LATAM.' },
+  { id:1, name:'Fundamentos de IA & Herramientas', short:'Fundamentos IA',    color:'#00d4ff', tip:'Dominar el ecosistema de herramientas IA disponibles hoy (Copilot, ChatGPT, Gemini) es el primer paso para multiplicar tu impacto.' },
+  { id:2, name:'Gestión y Seguimiento del Equipo',  short:'Equipo',            color:'#7b2fff', tip:'La IA puede darte visibilidad en tiempo real de tus 6 asesores sin reuniones interminables — que el cumplimiento suceda, no que se persiga.' },
+  { id:3, name:'Presentaciones & Business Reviews', short:'Presentaciones',    color:'#ff8c00', tip:'Reducir el tiempo de preparación de tus Business Reviews de horas a minutos, sin sacrificar calidad ni profundidad.' },
+  { id:4, name:'Automatización del Día a Día',      short:'Automatización',    color:'#00d48a', tip:'App de citas, reportes, seguimientos y coordinación: libera tiempo de lo operativo para enfocarte en lo estratégico.' },
+  { id:5, name:'Tu Ecosistema IA Personalizado',    short:'Ecosistema IA',     color:'#ff4757', tip:'Construir artefactos propios — prompts, asistentes y flujos — que trabajen para ti y tu equipo de forma autónoma.' },
 ];
 
-// ── PREGUNTAS ────────────────────────────────────────────────────────────
+// ── PREGUNTAS ─────────────────────────────────────────────────────────────
 const QS = [
-  // DIM 1: IA para BI & Datos
+  // DIM 1: Fundamentos de IA
   {
     dim:1,
-    q:'¿Cómo describes tu uso actual de IA dentro de tus procesos de análisis de datos?',
+    q:'¿Qué herramientas de inteligencia artificial usas hoy en tu trabajo diario como Sales Manager?',
     opts:[
-      'No uso IA en mis análisis, trabajo con métodos tradicionales (SQL, Excel, tablas estáticas)',
-      'Experimento ocasionalmente con herramientas de IA para explorar o visualizar datos',
-      'Uso IA regularmente para análisis y generación automática de insights en mis reportes',
-      'La IA es parte esencial de mi stack BI: modelos predictivos, NLP para narrativas, anomaly detection',
+      'Solo uso las apps corporativas que tengo instaladas, sin explorar herramientas de IA',
+      'Tengo acceso a Microsoft Copilot pero lo uso poco — preguntas básicas o casi nada',
+      'Uso Copilot con cierta regularidad y he probado también ChatGPT o similar para algunas tareas',
+      'Tengo un conjunto de herramientas de IA activas: Copilot, ChatGPT y otras que uso para diferentes partes de mi trabajo',
     ]
   },
   {
     dim:1,
-    q:'¿Qué tan integrado está el machine learning en los dashboards e informes que produces?',
+    q:'¿Cuánto sabes sobre las diferencias entre las herramientas de IA disponibles hoy (Copilot, ChatGPT, Gemini, Perplexity)?',
     opts:[
-      'No aplico ML en mis entregables actuales de BI',
-      'Conozco ML pero no lo he incorporado en mis reportes operativos',
-      'Uso features de ML nativas en Power BI, Looker o similares (forecasting, clustering automático)',
-      'Construyo o superviso modelos ML que alimentan directamente los dashboards de negocio de Merz',
+      'No tengo claridad sobre para qué sirve cada una — me parecen muy similares',
+      'Sé que existen pero no entiendo bien cuándo usar cada una según la tarea',
+      'Entiendo las diferencias principales y sé elegir la más adecuada según lo que necesito',
+      'Tengo criterio claro para elegir la herramienta correcta por caso de uso y las uso todas estratégicamente',
     ]
   },
   {
     dim:1,
-    q:'Cuando analizas datos de ventas o comportamiento de clientes de Merz LATAM, ¿qué herramientas de IA usas?',
+    q:'¿Qué tan cómoda te sientes escribiendo instrucciones (prompts) para obtener resultados útiles de la IA?',
     opts:[
-      'Solo SQL o Excel sin asistencia de IA',
-      'Consulto ChatGPT o similar para preguntas sobre los datos o interpretaciones',
-      'Uso plataformas analíticas con IA integrada (Power BI Copilot, Looker AI, Databricks)',
-      'Tengo un stack especializado: IA para limpieza, análisis semántico de datos y visualización inteligente',
+      'Cuando la uso, escribo frases cortas y los resultados no son lo que esperaba',
+      'A veces funciona, a veces no — depende de si "adivino" bien cómo preguntar',
+      'Sé estructurar instrucciones claras y obtengo resultados consistentes que me sirven',
+      'Domino el prompting: doy contexto, rol y formato esperado, y obtengo exactamente lo que necesito',
     ]
   },
   {
     dim:1,
-    q:'¿Cómo usas IA para detectar oportunidades de negocio dentro de los datos de Merz?',
+    q:'¿Usas Microsoft Copilot en Teams, Outlook o PowerPoint para tu trabajo hoy?',
     opts:[
-      'Identifico oportunidades manualmente revisando reportes periódicos',
-      'Uso alertas básicas y filtros para detectar anomalías o tendencias',
-      'Herramientas de IA sugieren patrones e insights de forma automática en mis análisis',
-      'Tengo sistemas de IA que monitorean datos en tiempo real y alertan proactivamente sobre oportunidades',
+      'No lo he explorado más allá de lo muy básico o ni siquiera lo he usado',
+      'Lo uso ocasionalmente — para resumir algún email o generar texto puntual',
+      'Lo uso con frecuencia para redactar, resumir y preparar contenido en mi día a día',
+      'Está integrado en todas mis apps de Microsoft 365 y es parte fundamental de mi flujo de trabajo',
     ]
   },
   {
     dim:1,
-    q:'¿Qué tan cómoda te sientes posicionando los datos + IA como ventaja competitiva para Merz?',
+    q:'¿Qué tanto conoces el potencial real de la IA para tu rol de Sales Manager con equipo a cargo?',
     opts:[
-      'Entiendo la teoría pero no sé cómo aplicarla en mi contexto actual',
-      'He propuesto iniciativas de datos pero sin componente de IA estructurado',
-      'Trabajo activamente en convertir los datos de Merz en ventajas reales usando IA',
-      'Soy referente en mi organización sobre cómo datos + IA generan ventaja competitiva medible',
+      'Sé que la IA puede ayudar pero no tengo claro cómo aplicarla en mi trabajo concreto',
+      'He visto casos de uso generales pero no he implementado nada en mi rol específico',
+      'Identifico casos concretos donde la IA me podría ayudar y ya he probado algunos',
+      'Tengo un mapa claro de cómo la IA potencia cada área de mi rol: equipo, clientes, reportes y estrategia',
     ]
   },
 
-  // DIM 2: Automatización
+  // DIM 2: Gestión del equipo
   {
     dim:2,
-    q:'¿Qué porcentaje de tus reportes y dashboards actuales se actualizan sin intervención manual?',
+    q:'¿Cómo haces hoy el seguimiento de las actividades y compromisos de tus 6 asesores?',
     opts:[
-      'La mayoría requieren actualización manual cada vez que los presento',
-      'Algunos están parcialmente automatizados (feeds automáticos, pero formato manual)',
-      'La mayoría están completamente automatizados y se refrescan solos en el momento correcto',
-      'Tengo pipelines de datos con IA que no solo actualizan sino que generan narrativas automáticas',
+      'Por conversaciones en WhatsApp o reuniones informales — sin sistema estructurado',
+      'Tengo algunas tablas o reportes pero el seguimiento es inconsistente o incompleto',
+      'Tengo un sistema de seguimiento estructurado aunque requiere esfuerzo manual significativo',
+      'Uso herramientas que me dan visibilidad en tiempo real del estado de cada asesor sin reuniones innecesarias',
     ]
   },
   {
     dim:2,
-    q:'¿Usas IA para automatizar la limpieza y preparación de datos (procesos ETL)?',
+    q:'¿Usas alguna herramienta de IA o digital para monitorear el cumplimiento de metas de tu equipo?',
     opts:[
-      'Hago la preparación de datos manualmente en la mayoría de los casos',
-      'Uso scripts básicos o fórmulas para algunas tareas repetitivas de limpieza',
-      'Uso herramientas con IA que sugieren y ejecutan transformaciones automáticas de datos',
-      'Tengo pipelines ETL inteligentes que aprenden de los datos y se ajustan solos al detectar cambios',
+      'No — el seguimiento es completamente manual, basado en lo que me reportan',
+      'Uso spreadsheets o reportes básicos que alguien me alimenta periódicamente',
+      'Tengo dashboards que consolidan información, aunque no son completamente automáticos',
+      'La IA me ayuda a identificar automáticamente quién está en riesgo de no cumplir y qué acciones tomar',
     ]
   },
   {
     dim:2,
-    q:'¿Cómo distribuyes los reportes e insights a los stakeholders de Merz?',
+    q:'¿Cuánto tiempo semanal inviertes en reuniones de seguimiento o coordinación con tu equipo?',
     opts:[
-      'Los envío manualmente por email o Teams cuando están listos',
-      'Algunos reportes están programados, el resto es manual según demanda',
-      'La mayoría se distribuyen automáticamente con la frecuencia y formato correctos',
-      'Uso sistemas inteligentes que adaptan contenido y canal de entrega según el perfil de cada receptor',
+      'Más de 8 horas — es una parte dominante de mi semana y siento que no alcanza',
+      'Entre 5 y 8 horas — muchas reuniones que podrían reducirse con mejores sistemas',
+      'Entre 2 y 5 horas — he mejorado pero todavía queda espacio para optimizar',
+      'Menos de 2 horas — tengo sistemas que reemplazan la mayoría de las reuniones de seguimiento',
     ]
   },
   {
     dim:2,
-    q:'¿Cuánto tiempo semanal dedicas a tareas repetitivas de datos que podrían automatizarse con IA?',
+    q:'¿Cómo das retroalimentación y coaching a tus asesores hoy?',
     opts:[
-      'Más de 10 horas — es una parte dominante de mi semana',
-      'Entre 5 y 10 horas — hay oportunidades claras de mejora',
-      'Entre 2 y 5 horas — he automatizado bastante, pero aún queda trabajo',
-      'Menos de 2 horas — la mayor parte está automatizado eficientemente con IA',
+      'De forma reactiva — cuando hay un problema o alguien me busca para hablar',
+      'En reuniones programadas, pero sin mucha data que respalde mis comentarios',
+      'Con datos de desempeño y observaciones estructuradas en conversaciones uno a uno',
+      'Tengo un proceso de feedback continuo donde la IA me ayuda a identificar patrones por asesor',
     ]
   },
   {
     dim:2,
-    q:'¿Usas IA para generar automáticamente narrativas e interpretaciones de los datos en lenguaje natural?',
+    q:'Si tuvieras una herramienta que te alertara automáticamente cuando un asesor está en riesgo de no cumplir su meta, ¿qué tan lista estarías para usarla?',
     opts:[
-      'No, los análisis narrativos los redacto yo de principio a fin',
-      'Conozco herramientas que hacen esto pero aún no las he implementado',
-      'Uso herramientas que generan resúmenes automáticos de mis dashboards',
-      'Tengo implementado un flujo que genera análisis narrativos completos listos para la dirección',
+      'No tengo la infraestructura ni los datos necesarios para algo así hoy',
+      'Tengo algunos datos pero están dispersos y no organizados para permitirlo',
+      'Tengo datos disponibles — podría construirlo con apoyo técnico',
+      'Mis datos están listos — solo necesito la herramienta configurada y la adopto de inmediato',
     ]
   },
 
-  // DIM 3: IA Generativa
+  // DIM 3: Presentaciones & Business Reviews
   {
     dim:3,
-    q:'¿Con qué frecuencia usas herramientas de IA generativa (ChatGPT, Copilot, Gemini) en tu trabajo diario?',
+    q:'¿Cuánto tiempo te toma preparar una presentación de Business Review típica?',
     opts:[
-      'Casi nunca — no forman parte de mi flujo de trabajo habitual',
-      'Ocasionalmente, para tareas muy específicas o puntuales',
-      'Varias veces por semana como parte regular de mi metodología de trabajo',
-      'Todos los días — son herramientas fundamentales en prácticamente todo lo que hago',
+      'Más de 6 horas — es un proceso largo: busco datos, los organizo y armo todo desde cero',
+      'Entre 3 y 6 horas — recopilo de varias fuentes y los estructuro manualmente',
+      'Entre 1 y 3 horas — tengo plantillas que ayudan pero sigue tomando tiempo',
+      'Menos de 1 hora — tengo un flujo con IA que consolida los datos y genera la estructura base',
     ]
   },
   {
     dim:3,
-    q:'¿Para qué usas principalmente la IA generativa en tu rol de BI Coordinator?',
+    q:'¿Usas IA para redactar, estructurar o mejorar tus presentaciones de ventas o reportes ejecutivos?',
     opts:[
-      'Aún no la incorporo en mi rol profesional de forma sistemática',
-      'Para redactar emails, resumir documentos o responder preguntas puntuales',
-      'Para generar código SQL/Python, analizar datos cualitativos y estructurar presentaciones de insights',
-      'La uso en toda la cadena: código, análisis, narrativas, comunicación a stakeholders y diseño de estrategia',
+      'No, las hago completamente de forma manual sin ayuda de IA',
+      'Ocasionalmente uso IA para algunos textos pero la estructura y análisis son completamente míos',
+      'Uso Copilot en PowerPoint o herramientas similares para agilizar partes del proceso',
+      'La IA es mi co-piloto: genera el primer borrador, organiza los datos y yo refino el mensaje estratégico',
     ]
   },
   {
     dim:3,
-    q:'¿Cómo describes tu habilidad para escribir prompts efectivos que generen resultados de calidad?',
+    q:'¿Cómo preparas el material para bajar información a tus 6 asesores y alinear al equipo?',
     opts:[
-      'No sé cómo hacer buenos prompts — los resultados que obtengo no son útiles',
-      'Uso prompts básicos y obtengo resultados mediocres que requiero corregir mucho',
-      'Sé estructurar prompts para obtener outputs de calidad en mis tareas de datos y presentaciones',
-      'Domino técnicas avanzadas de prompting (chain-of-thought, role-based, few-shot, meta-prompting)',
+      'Creo presentaciones o mensajes desde cero para cada comunicación importante',
+      'Adapto materiales existentes pero sigue siendo un proceso que toma tiempo considerable',
+      'Tengo plantillas reutilizables que me permiten adaptar mensajes rápidamente',
+      'Uso IA para personalizar la comunicación por asesor según su contexto y perfil',
     ]
   },
   {
     dim:3,
-    q:'¿Usas IA para preparar presentaciones de resultados para la gerencia de Merz LATAM?',
+    q:'¿Usas alguna herramienta de IA para resumir reuniones, visitas con clientes o llamadas importantes?',
     opts:[
-      'No, las preparo completamente de forma tradicional sin IA',
-      'Uso IA para algunas partes del texto, pero el análisis y estructura son manuales',
-      'Uso IA para estructurar, redactar y visualizar los insights clave en mis presentaciones ejecutivas',
-      'La IA es mi co-piloto completo: desde el análisis hasta el storytelling ejecutivo y las visualizaciones',
+      'Tomo notas manualmente o muchas veces no queda ningún registro estructurado',
+      'Intento tomar notas pero después me cuesta organizar la información y los próximos pasos',
+      'Uso herramientas de transcripción o resumen ocasionalmente para reuniones clave',
+      'Todas mis reuniones quedan resumidas automáticamente con puntos de acción claros',
     ]
   },
   {
     dim:3,
-    q:'¿Qué tan consciente eres de las limitaciones y riesgos de la IA generativa en contextos de datos empresariales?',
+    q:'¿Qué tan eficiente es tu proceso de reporte hacia tu gerencia hoy?',
     opts:[
-      'No he reflexionado profundamente sobre los riesgos específicos para mi área',
-      'Conozco riesgos generales (alucinaciones, bias) pero no los gestiono sistemáticamente',
-      'Soy consciente de los riesgos clave y tengo hábitos de validación y cuidado de datos sensibles',
-      'Tengo protocolos claros de gobernanza de IA, validación de outputs y privacidad de datos empresariales',
+      'Recopilo datos de múltiples fuentes manualmente cada vez — es agotador y toma mucho tiempo',
+      'Tengo algunos procesos pero consolidar la información sigue siendo mi cuello de botella',
+      'Tengo dashboards o reportes semiautomáticos que reducen el esfuerzo pero aún requieren trabajo',
+      'Mis reportes se generan de forma casi automática y yo me enfoco en el análisis y la narrativa',
     ]
   },
 
-  // DIM 4: Liderazgo & Estrategia
+  // DIM 4: Automatización
   {
     dim:4,
-    q:'Como coordinadora, ¿cómo usas IA para informar y mejorar tus decisiones estratégicas?',
+    q:'¿Cómo gestionas hoy la agenda de citas y visitas de tu equipo de 6 asesores y las tuyas?',
     opts:[
-      'Mis decisiones se basan principalmente en intuición y experiencia acumulada',
-      'Uso datos históricos para informar decisiones, pero sin componente de IA predictiva',
-      'Uso herramientas de IA para modelar escenarios y anticipar consecuencias de mis decisiones',
-      'Lidero con IA como ventaja real: simulo escenarios, analizo riesgos y proyecto resultados antes de actuar',
+      'Por WhatsApp, llamadas o de forma manual — sin un sistema digital unificado de agendamiento',
+      'Uso el calendario de Outlook pero la coordinación sigue siendo manual y sin visibilidad consolidada',
+      'Tengo alguna app de agendamiento que agiliza el proceso para mí o para el equipo',
+      'El ecosistema de agendamiento está automatizado: asesores y yo tenemos visibilidad y control sin fricción',
     ]
   },
   {
     dim:4,
-    q:'¿Cómo comunicas el valor de la IA y los datos a líderes no técnicos dentro de Merz?',
+    q:'¿Cuántas tareas repetitivas del día a día (reportes, correos, actualizaciones de status) podrían automatizarse en tu rol?',
     opts:[
-      'Me cuesta traducir los insights técnicos al lenguaje de negocios de mis stakeholders',
-      'Puedo explicar los conceptos pero con dificultad para conectarlos con el impacto en negocio',
-      'Tengo habilidad para convertir datos complejos en historias claras con impacto ejecutivo',
-      'Soy referente en mi organización para traducir IA y datos en decisiones concretas de negocio',
+      'La mayoría de mis tareas parecen únicas y necesitan atención manual caso por caso',
+      'Hay tareas repetitivas claras pero no sé cómo automatizarlas con las herramientas que tengo',
+      'Identifico varias tareas automatizables y ya he eliminado algunas del proceso manual',
+      'Tengo automatizadas la mayoría de mis tareas rutinarias y me enfoco en lo estratégico y relacional',
     ]
   },
   {
     dim:4,
-    q:'¿Has propuesto o liderado iniciativas de BI o IA dentro de Merz Aesthetics LATAM?',
+    q:'¿Tienes prompts o plantillas de IA guardados para tareas que realizas frecuentemente?',
     opts:[
-      'No he propuesto iniciativas formales de IA hasta ahora',
-      'He sugerido ideas informalmente pero sin llevarlas a proyectos estructurados',
-      'He liderado uno o dos proyectos concretos de mejora de BI con componente de IA',
-      'Soy impulsora activa de la agenda de datos e IA en Merz LATAM con proyectos en curso y resultados medibles',
+      'No tengo ningún sistema de prompts — empiezo desde cero cada vez que uso IA',
+      'He guardado algunos prompts de forma informal pero sin organización ni sistema',
+      'Tengo un conjunto de prompts que reutilizo para mis tareas más frecuentes',
+      'Tengo una biblioteca de prompts personalizados por tipo de tarea: seguimiento, reportes, comunicaciones',
     ]
   },
   {
     dim:4,
-    q:'¿Cómo gestionas tu desarrollo continuo en IA y herramientas de datos?',
+    q:'Si tu equipo pudiera hacer el reporte diario de sus actividades en 2 minutos a través de IA, ¿qué tan lista estarías para implementarlo hoy?',
     opts:[
-      'Aprendo solo cuando surge una necesidad inmediata o me lo piden',
-      'Sigo noticias del sector ocasionalmente pero sin un plan estructurado',
-      'Tengo un plan de aprendizaje con cursos, comunidades y práctica deliberada y regular',
-      'Aprendo activamente, experimento con herramientas nuevas y comparto ese conocimiento con mi equipo',
+      'Primero necesito entender cómo funciona eso — no tengo claridad sobre qué es posible',
+      'Me interesa mucho pero no sé por dónde empezar a implementarlo en mi equipo',
+      'Podría implementarlo con apoyo — ya he visto herramientas similares y me genera curiosidad',
+      'Estoy lista — solo necesito la herramienta configurada y lo adopto esta semana',
     ]
   },
   {
     dim:4,
-    q:'¿Cómo visualizas tu rol en relación con la IA en los próximos 2 años?',
+    q:'¿Tienes un sistema para capturar y recuperar la información importante que recibes durante el día (ideas, compromisos, contexto de clientes)?',
     opts:[
-      'Aún no tengo claridad sobre cómo la IA transformará mi rol específicamente',
-      'Veo que hay cambios importantes pero no tengo una hoja de ruta personal clara',
-      'Tengo una visión definida de cómo potenciar mi rol con IA y ya estoy ejecutando acciones concretas',
-      'Soy una líder de IA dentro de Merz con un plan estratégico de adopción en marcha que involucra a todo el equipo',
+      'No — la información queda dispersa en chats, correos o en mi cabeza',
+      'A veces anoto en papel o en notas del celular pero sin sistema ni estructura',
+      'Tengo un método básico de captura aunque podría ser más eficiente y sistematizado',
+      'Tengo un sistema digital integrado que captura, organiza y me permite recuperar información fácilmente',
     ]
   },
 
-  // DIM 5: Industria
+  // DIM 5: Ecosistema IA propio
   {
     dim:5,
-    q:'¿Qué tan familiarizada estás con los casos de uso de IA específicos para la industria estética médica y farma?',
+    q:'¿Has creado alguna vez un prompt personalizado o configurado una herramienta de IA para una tarea específica de tu trabajo?',
     opts:[
-      'No he explorado casos de uso de IA específicos para mi industria en detalle',
-      'Conozco algunos casos generales de IA en salud o retail pero no los aplicados a estética',
-      'Conozco casos relevantes: personalización de tratamientos, market intelligence, forecasting de portafolio',
-      'Soy experta en IA para estética médica: patient journey analytics, market intelligence LATAM, supply chain IA',
+      'No, nunca he creado nada — solo uso lo que ya viene configurado',
+      'He intentado hacer prompts pero sin resultados que realmente sirvan para mi trabajo',
+      'Tengo algunos prompts o configuraciones propias que uso con buenos resultados',
+      'He construido artefactos de IA (prompts avanzados, GPTs, flujos) que uso regularmente',
     ]
   },
   {
     dim:5,
-    q:'¿Cómo usas datos e IA para entender y anticipar el comportamiento del médico/cliente de Merz LATAM?',
+    q:'¿Cómo evaluarías tu capacidad de construir un "asistente de IA personalizado" para gestionar el seguimiento de tus asesores?',
     opts:[
-      'Uso reportes estándar sin personalización por segmento ni análisis predictivo',
-      'Hago segmentación básica por criterios demográficos o histórico de compra',
-      'Uso análisis avanzado para entender patrones y predecir comportamiento de adopción de productos',
-      'Tengo modelos de IA que perfillan a cada médico/cliente y personalizan automáticamente la estrategia de atención',
+      'No sé por dónde empezar — el concepto me parece lejano a lo que puedo hacer hoy',
+      'Lo he escuchado pero no sé cómo construirlo yo misma sin ayuda técnica',
+      'Con una guía paso a paso podría intentarlo — tengo las bases para empezar',
+      'Ya tengo experiencia construyendo herramientas de IA y podría hacerlo con bastante autonomía',
     ]
   },
   {
     dim:5,
-    q:'¿Qué tan preparada estás para trabajar con datos sensibles de clientes en un contexto de IA responsable?',
+    q:'¿Tienes documentado cómo haces tu trabajo: procesos, criterios de decisión, rutinas, información clave del equipo?',
     opts:[
-      'No he trabajado el tema de privacidad de datos específicamente en contextos de IA',
-      'Conozco los conceptos básicos de regulación pero no los aplico sistemáticamente en mis proyectos',
-      'Aplico principios de privacidad by design, ética de datos y cumplimiento normativo en mis proyectos',
-      'Soy referente en gobernanza de datos y ética de IA dentro de Merz con protocolos formales establecidos',
+      'No, todo está en mi cabeza o en conversaciones dispersas',
+      'Tengo algo informal pero no es un documento estructurado y usable',
+      'Tengo documentación básica de procesos pero sin el nivel de detalle para entrenar una IA',
+      'Tengo mi rol bien documentado — lo suficiente para que una IA entienda mi contexto y trabaje como yo',
     ]
   },
   {
     dim:5,
-    q:'¿Cómo usas IA para análisis competitivo e inteligencia de mercado en estética LATAM?',
+    q:'Si tuvieras un asistente de IA que conoce a tus 6 asesores, sus metas, su historial y tu estilo de gestión, ¿para qué lo usarías primero?',
     opts:[
-      'El análisis competitivo se hace manualmente con información pública disponible',
-      'Uso algunas herramientas básicas de monitoreo de mercado o Google Alerts',
-      'Uso IA para análisis de tendencias, precios y posicionamiento de competidores en tiempo casi real',
-      'Tengo un sistema de inteligencia competitiva con IA que actualiza automáticamente el mapa del mercado',
+      'Todavía no tengo claro cómo aprovechar algo así — necesito más contexto y ejemplos',
+      'Para preguntas básicas o para que me recuerde los compromisos del equipo',
+      'Para preparar mis Business Reviews y hacer seguimiento automático de mis asesores',
+      'Para tener visibilidad del equipo en tiempo real, generar reportes y sugerirme acciones sin que yo los pida',
     ]
   },
   {
     dim:5,
-    q:'¿Qué visión tienes sobre cómo la IA transformará la gestión de datos en empresas de estética/farma LATAM?',
+    q:'¿Qué tan dispuesta estás a invertir tiempo en aprender a construir tus propias herramientas de IA?',
     opts:[
-      'Creo que los cambios serán graduales y no afectarán significativamente mi rol en el corto plazo',
-      'Veo cambios importantes en el horizonte pero aún no tengo claro cómo prepararme estratégicamente',
-      'Tengo una visión clara del impacto y estoy preparando mi área para liderar esa transición',
-      'Soy vocera activa de esta transformación dentro y fuera de Merz, con proyectos piloto en ejecución',
+      'Prefiero que alguien más lo configure y yo solo usar lo que ya está listo',
+      'Si es muy fácil y rápido, lo intentaría — pero no tengo mucho tiempo disponible',
+      'Estoy dispuesta a aprender — si veo el valor concreto para mi rol, le invierto tiempo',
+      'Ya estoy aprendiendo activamente y quiero ser autónoma para construir y ajustar mis propias herramientas',
     ]
   },
 ];
@@ -712,42 +604,37 @@ const QS = [
 const LEVELS = {
   exploradora: {
     min:0, max:49,
-    label:'🌱 Exploradora de Datos',
-    title:'Bases Sólidas, Camino Claro',
-    desc:'Tienes una base fuerte en BI tradicional y el momento perfecto para dar el salto a la IA. Tu experiencia de más de 5 años en Merz es el activo clave: ya conoces los datos, el negocio y los stakeholders. El acompañamiento estratégico te ayudará a integrar IA de forma práctica y sostenible, empezando por las áreas donde el impacto será más visible.',
+    label:'🌱 Exploradora IA',
+    title:'Punto de Partida con Alto Potencial',
+    desc:'Tienes una base sólida en ventas y gestión de equipos — y esos son exactamente los dominios donde la IA genera más impacto inmediato. El seguimiento de tu equipo, el volumen de presentaciones y la coordinación del día a día son problemas que la IA resuelve hoy. El acompañamiento estratégico empezará por las victorias rápidas que liberen tu tiempo en las próximas semanas.',
     bg:'rgba(0,212,255,0.1)', color:'#00d4ff', border:'rgba(0,212,255,0.3)'
   },
   aceleracion: {
     min:50, max:74,
-    label:'⚡ Analista Aumentada',
-    title:'IA en Marcha, Momento de Escalar',
-    desc:'Ya estás aplicando IA en áreas clave de tu trabajo. Tienes herramientas, tienes el criterio y claramente tienes la ambición. El siguiente nivel es sistematizar lo que ya funciona, cerrar las brechas en las dimensiones donde hay más oportunidad y posicionarte como la referente de datos e IA en Merz LATAM. Ese es exactamente el camino que trazaremos juntos.',
+    label:'⚡ Sales Manager en Aceleración',
+    title:'IA en Marcha, Momento de Sistematizar',
+    desc:'Ya estás usando IA en algunas áreas y entiendes su valor. El siguiente paso es sistematizar lo que funciona, cerrar las brechas y construir un ecosistema que trabaje para ti — no solo cuando lo recuerdas usar. Con el acompañamiento correcto, en pocas semanas tendrás herramientas propias para tu equipo, tus reportes y tu gestión diaria.',
     bg:'rgba(123,47,255,0.1)', color:'#7b2fff', border:'rgba(123,47,255,0.3)'
   },
   lider: {
     min:75, max:100,
-    label:'🚀 Líder Data-Driven IA',
-    title:'Referente en Datos e IA',
-    desc:'Eres una referente en la intersección de BI e inteligencia artificial en tu sector. Tu visión es clara, tus herramientas están funcionando y tu impacto es visible. El acompañamiento estratégico se enfocará en escalar ese impacto a nivel LATAM, construir una narrativa de liderazgo sólida y abrir puertas hacia posiciones de mayor influencia en la agenda de IA de Merz.',
+    label:'🚀 Sales Manager Aumentada',
+    title:'IA como Ventaja Competitiva Real',
+    desc:'Eres una Sales Manager que ya usa la IA como ventaja diferencial. Tu ecosistema de herramientas está funcionando y tu equipo lo nota. El acompañamiento estratégico se enfocará en escalar ese impacto: construir artefactos más sofisticados, posicionarte como referente de adopción dentro de Merz y liberar aún más tiempo para el liderazgo estratégico.',
     bg:'rgba(0,212,138,0.1)', color:'#00d48a', border:'rgba(0,212,138,0.3)'
   }
 };
 
-// ── STATE ──────────────────────────────────────────────────────────────────
+// ── STATE ─────────────────────────────────────────────────────────────────
 let userData = {};
 let answers  = new Array(25).fill(null);
 let current  = 0;
 
-// ── SUPABASE ───────────────────────────────────────────────────────────────
+// ── SUPABASE ──────────────────────────────────────────────────────────────
 async function sbInsert(payload) {
   const r = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
     method: 'POST',
-    headers: {
-      'Content-Type':  'application/json',
-      'apikey':        SUPABASE_ANON,
-      'Authorization': 'Bearer ' + SUPABASE_ANON,
-      'Prefer':        'return=minimal',
-    },
+    headers: { 'Content-Type':'application/json', 'apikey':SUPABASE_ANON, 'Authorization':'Bearer '+SUPABASE_ANON, 'Prefer':'return=minimal' },
     body: JSON.stringify(payload),
   });
   return r.ok;
@@ -755,10 +642,7 @@ async function sbInsert(payload) {
 
 async function sbSelect() {
   const r = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}?select=*&order=fecha_hora.desc`, {
-    headers: {
-      'apikey':        SUPABASE_ANON,
-      'Authorization': 'Bearer ' + SUPABASE_ANON,
-    }
+    headers: { 'apikey':SUPABASE_ANON, 'Authorization':'Bearer '+SUPABASE_ANON }
   });
   return r.ok ? r.json() : [];
 }
@@ -773,64 +657,50 @@ function showView(id) {
 function startQuiz() {
   const nombre = document.getElementById('f-nombre').value.trim();
   const email  = document.getElementById('f-email').value.trim();
-  if (!nombre || !email) {
-    alert('Por favor completa tu nombre y correo para continuar.');
-    return;
-  }
+  if (!nombre || !email) { alert('Por favor completa tu nombre y correo para continuar.'); return; }
   userData = {
     nombre,
     email,
     empresa: document.getElementById('f-empresa').value.trim(),
     cargo:   document.getElementById('f-cargo').value.trim(),
   };
-  answers  = new Array(25).fill(null);
-  current  = 0;
+  answers = new Array(25).fill(null);
+  current = 0;
   renderQ(0);
   showView('v-quiz');
 }
 
-// ── QUIZ ───────────────────────────────────────────────────────────────────
+// ── QUIZ ──────────────────────────────────────────────────────────────────
 function renderQ(i) {
   const q   = QS[i];
   const dim = DIMS[q.dim - 1];
 
-  // progress
-  const pct = Math.round(((i) / QS.length) * 100);
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('prog-fill').style.background =
-    `linear-gradient(90deg, ${dim.color}, var(--purple))`;
-  document.getElementById('prog-label').textContent =
-    `Pregunta ${i + 1} de ${QS.length}`;
+  const pct = Math.round((i / QS.length) * 100);
+  document.getElementById('prog-fill').style.width      = pct + '%';
+  document.getElementById('prog-fill').style.background = `linear-gradient(90deg, ${dim.color}, var(--purple))`;
+  document.getElementById('prog-label').textContent     = `Pregunta ${i + 1} de ${QS.length}`;
 
-  // dim label
   const lbl = document.getElementById('dim-label');
-  lbl.textContent  = `DIM ${q.dim} · ${dim.name}`;
-  lbl.style.background = dim.color + '22';
-  lbl.style.color      = dim.color;
-  lbl.style.border     = `1px solid ${dim.color}55`;
+  lbl.textContent        = `DIM ${q.dim} · ${dim.name}`;
+  lbl.style.background   = dim.color + '22';
+  lbl.style.color        = dim.color;
+  lbl.style.border       = `1px solid ${dim.color}55`;
 
-  // question
   document.getElementById('q-text').textContent = q.q;
 
-  // options
   const optsEl = document.getElementById('options');
   optsEl.innerHTML = '';
   q.opts.forEach((opt, idx) => {
     const btn = document.createElement('button');
     btn.className = 'opt' + (answers[i] === idx ? ' selected' : '');
-    if (answers[i] === idx) {
-      btn.style.borderColor = dim.color;
-      btn.style.background  = dim.color + '20';
-    }
+    if (answers[i] === idx) { btn.style.borderColor = dim.color; btn.style.background = dim.color + '20'; }
     btn.textContent = opt;
     btn.onclick = () => selectOpt(i, idx, dim.color);
     optsEl.appendChild(btn);
   });
 
-  // nav
   document.getElementById('btn-prev').disabled = i === 0;
-  document.getElementById('btn-next').textContent =
-    i === QS.length - 1 ? 'Ver mis resultados →' : 'Siguiente →';
+  document.getElementById('btn-next').textContent = i === QS.length - 1 ? 'Ver mis resultados →' : 'Siguiente →';
 }
 
 function selectOpt(qIdx, optIdx, color) {
@@ -843,34 +713,21 @@ function selectOpt(qIdx, optIdx, color) {
 }
 
 function nextQ() {
-  if (answers[current] === null) {
-    alert('Por favor selecciona una respuesta antes de continuar.');
-    return;
-  }
-  if (current === QS.length - 1) {
-    finishQuiz();
-  } else {
-    current++;
-    renderQ(current);
-  }
+  if (answers[current] === null) { alert('Por favor selecciona una respuesta antes de continuar.'); return; }
+  if (current === QS.length - 1) { finishQuiz(); } else { current++; renderQ(current); }
 }
 
 function prevQ() {
   if (current > 0) { current--; renderQ(current); }
 }
 
-// ── FINISH & SCORE ─────────────────────────────────────────────────────────
+// ── FINISH & SCORE ────────────────────────────────────────────────────────
 async function finishQuiz() {
   showView('v-saving');
 
-  // calc scores
   const dimScores = [0,0,0,0,0];
-  answers.forEach((ans, i) => {
-    const dimIdx = QS[i].dim - 1;
-    dimScores[dimIdx] += (ans ?? 0);
-  });
-  // each dim: 5 questions × max 3 pts = 15 raw → /15 *100
-  const dimPcts = dimScores.map(s => Math.round(s * 100 / 15));
+  answers.forEach((ans, i) => { dimScores[QS[i].dim - 1] += (ans ?? 0); });
+  const dimPcts  = dimScores.map(s => Math.round(s * 100 / 15));
   const totalRaw = dimScores.reduce((a,b) => a+b, 0);
   const totalPct = Math.round(totalRaw * 100 / 75);
 
@@ -878,19 +735,13 @@ async function finishQuiz() {
   if (totalPct >= 75) level = 'lider';
   else if (totalPct >= 50) level = 'aceleracion';
 
-  // save
   await sbInsert({
-    nombre:       userData.nombre,
-    email:        userData.email,
-    empresa:      userData.empresa,
-    cargo:        userData.cargo,
+    nombre: userData.nombre, email: userData.email,
+    empresa: userData.empresa, cargo: userData.cargo,
     puntaje_total: totalPct,
-    puntaje_dim1:  dimPcts[0],
-    puntaje_dim2:  dimPcts[1],
-    puntaje_dim3:  dimPcts[2],
-    puntaje_dim4:  dimPcts[3],
-    puntaje_dim5:  dimPcts[4],
-    nivel:         level,
+    puntaje_dim1: dimPcts[0], puntaje_dim2: dimPcts[1], puntaje_dim3: dimPcts[2],
+    puntaje_dim4: dimPcts[3], puntaje_dim5: dimPcts[4],
+    nivel: level,
   });
 
   showResults(totalPct, dimPcts, level);
@@ -899,28 +750,25 @@ async function finishQuiz() {
 function showResults(total, dimPcts, level) {
   const lvl = LEVELS[level];
 
-  // ring
   const ring = document.getElementById('res-ring');
-  ring.style.background = lvl.bg;
+  ring.style.background  = lvl.bg;
   ring.style.border      = `3px solid ${lvl.color}`;
   ring.style.boxShadow   = `0 0 40px ${lvl.color}40`;
-
   document.getElementById('res-score').textContent = total;
 
   const badge = document.getElementById('res-badge');
-  badge.textContent       = lvl.label;
-  badge.style.background  = lvl.bg;
-  badge.style.border      = `1px solid ${lvl.border ? lvl.border : lvl.color}`;
-  badge.style.color       = lvl.color;
+  badge.textContent      = lvl.label;
+  badge.style.background = lvl.bg;
+  badge.style.border     = `1px solid ${lvl.border}`;
+  badge.style.color      = lvl.color;
 
   document.getElementById('res-title').textContent = lvl.title;
   document.getElementById('res-desc').textContent  = lvl.desc;
 
-  // dimension detail cards
   const detail = document.getElementById('dims-detail');
   detail.innerHTML = '';
   DIMS.forEach((dim, i) => {
-    const pct = dimPcts[i];
+    const pct  = dimPcts[i];
     const card = document.createElement('div');
     card.className = 'dim-card';
     card.innerHTML = `
@@ -939,36 +787,25 @@ function showResults(total, dimPcts, level) {
   showView('v-result');
 }
 
-function restart() {
-  answers = new Array(25).fill(null);
-  current = 0;
-  showView('v-intro');
-}
+function restart() { answers = new Array(25).fill(null); current = 0; showView('v-intro'); }
 
-// ── ADMIN ──────────────────────────────────────────────────────────────────
+// ── ADMIN ─────────────────────────────────────────────────────────────────
 function adminLogin() {
   const pass = document.getElementById('admin-pass').value;
   const err  = document.getElementById('admin-err');
-  if (pass === ADMIN_PASS) {
-    err.style.display = 'none';
-    loadAdmin();
-    showView('v-admin');
-  } else {
-    err.style.display = 'block';
-  }
+  if (pass === ADMIN_PASS) { err.style.display = 'none'; loadAdmin(); showView('v-admin'); }
+  else { err.style.display = 'block'; }
 }
 
 async function loadAdmin() {
   const data = await sbSelect();
   if (!data || !data.length) {
-    document.getElementById('admin-tbody').innerHTML =
-      '<tr><td colspan="12" style="text-align:center;color:rgba(255,255,255,0.4);padding:24px">Sin respuestas aún</td></tr>';
+    document.getElementById('admin-tbody').innerHTML = '<tr><td colspan="12" style="text-align:center;color:rgba(255,255,255,0.4);padding:24px">Sin respuestas aún</td></tr>';
     document.getElementById('st-total').textContent = '0';
     document.getElementById('st-avg').textContent   = '--';
     document.getElementById('st-top').textContent   = '--';
     return;
   }
-
   document.getElementById('st-total').textContent = data.length;
   const avg = Math.round(data.reduce((a,r) => a + r.puntaje_total, 0) / data.length);
   const top = Math.max(...data.map(r => r.puntaje_total));
@@ -977,63 +814,48 @@ async function loadAdmin() {
 
   const tbody = document.getElementById('admin-tbody');
   tbody.innerHTML = '';
-  const lvlColors = { exploradora:'#00d4ff', aceleracion:'#7b2fff', lider:'#00d48a' };
+  const lc = { exploradora:'#00d4ff', aceleracion:'#7b2fff', lider:'#00d48a' };
   data.forEach((r, i) => {
-    const tr = document.createElement('tr');
-    const fecha = r.fecha_hora ? new Date(r.fecha_hora).toLocaleDateString('es-CO') : '--';
-    const lc = lvlColors[r.nivel] || '#fff';
+    const tr   = document.createElement('tr');
+    const d    = r.fecha_hora ? new Date(r.fecha_hora).toLocaleDateString('es-CO') : '--';
+    const c    = lc[r.nivel] || '#fff';
     tr.innerHTML = `
-      <td>${i+1}</td>
-      <td>${r.nombre}</td>
-      <td>${r.email || '--'}</td>
-      <td>${r.empresa || '--'}</td>
-      <td style="font-weight:700;color:${lc}">${r.puntaje_total}</td>
-      <td><span class="level-pill" style="background:${lc}22;color:${lc};border:1px solid ${lc}44">${r.nivel}</span></td>
-      <td>${r.puntaje_dim1 ?? '--'}</td>
-      <td>${r.puntaje_dim2 ?? '--'}</td>
-      <td>${r.puntaje_dim3 ?? '--'}</td>
-      <td>${r.puntaje_dim4 ?? '--'}</td>
-      <td>${r.puntaje_dim5 ?? '--'}</td>
-      <td>${fecha}</td>
+      <td>${i+1}</td><td>${r.nombre}</td><td>${r.email||'--'}</td><td>${r.empresa||'--'}</td>
+      <td style="font-weight:700;color:${c}">${r.puntaje_total}</td>
+      <td><span class="level-pill" style="background:${c}22;color:${c};border:1px solid ${c}44">${r.nivel}</span></td>
+      <td>${r.puntaje_dim1??'--'}</td><td>${r.puntaje_dim2??'--'}</td><td>${r.puntaje_dim3??'--'}</td>
+      <td>${r.puntaje_dim4??'--'}</td><td>${r.puntaje_dim5??'--'}</td><td>${d}</td>
     `;
     tbody.appendChild(tr);
   });
-
   window._adminData = data;
 }
 
 function exportCSV() {
   const data = window._adminData;
-  if (!data || !data.length) return;
-  const headers = ['#','Nombre','Email','Empresa','Cargo','Total','Nivel','D1-BI&Datos','D2-Automatizacion','D3-GenAI','D4-Liderazgo','D5-Industria','Fecha'];
-  const rows = data.map((r, i) => [
-    i+1, r.nombre, r.email, r.empresa, r.cargo,
-    r.puntaje_total, r.nivel,
-    r.puntaje_dim1, r.puntaje_dim2, r.puntaje_dim3, r.puntaje_dim4, r.puntaje_dim5,
-    r.fecha_hora ? new Date(r.fecha_hora).toLocaleString('es-CO') : ''
-  ]);
-  const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+  if (!data||!data.length) return;
+  const h = ['#','Nombre','Email','Empresa','Cargo','Total','Nivel','D1-Fundamentos','D2-Equipo','D3-Presentaciones','D4-Automatizacion','D5-Ecosistema','Fecha'];
+  const rows = data.map((r,i) => [i+1,r.nombre,r.email,r.empresa,r.cargo,r.puntaje_total,r.nivel,r.puntaje_dim1,r.puntaje_dim2,r.puntaje_dim3,r.puntaje_dim4,r.puntaje_dim5,r.fecha_hora?new Date(r.fecha_hora).toLocaleString('es-CO'):'']);
+  const csv = [h,...rows].map(r=>r.join(',')).join('\n');
   const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = 'diagnostico-anamaria-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.href     = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'diagnostico-anamaria-h-' + new Date().toISOString().split('T')[0] + '.csv';
   a.click();
 }
 
-// Admin: triple-click on the tiny dot activates admin login
-let adminClicks = 0, adminTimer;
-document.querySelector('.logo-dot').addEventListener('click', () => {
-  adminClicks++;
-  clearTimeout(adminTimer);
-  adminTimer = setTimeout(() => adminClicks = 0, 1200);
-  if (adminClicks >= 5) {
-    adminClicks = 0;
-    document.getElementById('admin-pass').value = '';
-    document.getElementById('admin-err').style.display = 'none';
-    showView('v-admin-login');
-  }
+// Admin: 5 clicks rápidos en el logo-dot
+let _ac = 0, _at;
+['logo-dot','logo-dot-2'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('click', () => {
+    _ac++; clearTimeout(_at);
+    _at = setTimeout(() => _ac = 0, 1200);
+    if (_ac >= 5) { _ac = 0; document.getElementById('admin-pass').value = ''; document.getElementById('admin-err').style.display='none'; showView('v-admin-login'); }
+  });
 });
 
-// ── PARTICLES ──────────────────────────────────────────────────────────────
+// ── PARTICLES ─────────────────────────────────────────────────────────────
 (function() {
   const canvas = document.getElementById('particles');
   const ctx    = canvas.getContext('2d');
@@ -1042,37 +864,22 @@ document.querySelector('.logo-dot').addEventListener('click', () => {
   resize();
   window.addEventListener('resize', resize);
   for (let i = 0; i < 55; i++) {
-    pts.push({
-      x: Math.random() * innerWidth,
-      y: Math.random() * innerHeight,
-      vx: (Math.random() - .5) * .4,
-      vy: (Math.random() - .5) * .4,
-      r: Math.random() * 1.6 + .4,
-    });
+    pts.push({ x:Math.random()*innerWidth, y:Math.random()*innerHeight, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4, r:Math.random()*1.6+.4 });
   }
   const colors = ['#00d4ff','#7b2fff','#ff8c00','#00d48a'];
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     pts.forEach((p, i) => {
       p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = colors[i % colors.length];
-      ctx.fill();
-      pts.slice(i + 1).forEach(q => {
-        const dx = p.x - q.x, dy = p.y - q.y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
+      if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = colors[i%colors.length]; ctx.fill();
+      pts.slice(i+1).forEach(q => {
+        const dx=p.x-q.x, dy=p.y-q.y, dist=Math.sqrt(dx*dx+dy*dy);
         if (dist < 110) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(0,212,255,${.08 * (1 - dist/110)})`;
-          ctx.lineWidth = .5;
-          ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle=`rgba(0,212,255,${.08*(1-dist/110)})`; ctx.lineWidth=.5; ctx.stroke();
         }
       });
     });
