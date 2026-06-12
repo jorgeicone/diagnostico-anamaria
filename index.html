@@ -317,6 +317,54 @@
     .adm-filter-note.on{display:block}
     input[type=checkbox].adm-cb{accent-color:var(--c1);width:15px;height:15px;cursor:pointer;vertical-align:middle}
     tr.adm-sel-row>td{background:rgba(0,212,255,.06)!important}
+    /* ─── DETAIL MODAL ─── */
+    .det-ov{display:none;position:fixed;inset:0;z-index:3000;background:rgba(5,13,31,.95);backdrop-filter:blur(14px);overflow-y:auto;padding:20px 16px}
+    .det-ov.on{display:flex;align-items:flex-start;justify-content:center;padding-top:30px}
+    .det-box{background:linear-gradient(160deg,rgba(18,26,48,1),rgba(10,18,35,1));border:1px solid rgba(0,212,255,.2);border-radius:22px;max-width:820px;width:100%;padding:28px 30px;position:relative;margin:0 auto 40px}
+    .det-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.07);border:none;color:rgba(255,255,255,.5);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:.2s;font-family:var(--font)}
+    .det-close:hover{background:rgba(255,71,87,.2);color:#ff4757}
+    .det-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .det-nav-btn{background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.18);color:var(--c1);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:.78rem;font-weight:700;transition:.2s;font-family:var(--font)}
+    .det-nav-btn:hover:not(:disabled){background:rgba(0,212,255,.18)}
+    .det-nav-btn:disabled{opacity:.25;cursor:default}
+    .det-nav-pos{font-size:.78rem;color:var(--text3)}
+    .det-head{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;margin-bottom:20px}
+    .det-hname{font-size:1.45rem;font-weight:900;color:var(--text)}
+    .det-hmeta{font-size:.78rem;color:var(--text3);margin-top:5px}
+    .det-hbadge{text-align:center;min-width:85px}
+    .det-hbadge-num{font-size:2.6rem;font-weight:900;line-height:1}
+    .det-hbadge-lv{font-size:.68rem;font-weight:700;margin-top:7px;padding:4px 10px;border-radius:20px;display:inline-block;max-width:140px}
+    .det-tabs{display:flex;gap:6px;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:12px;margin-bottom:18px}
+    .det-tab{padding:7px 18px;border-radius:10px;font-size:.8rem;font-weight:700;cursor:pointer;border:1.5px solid transparent;background:transparent;color:rgba(255,255,255,.35);transition:.2s;font-family:var(--font)}
+    .det-tab.on{background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.28);color:var(--c1)}
+    .det-pane{display:none}
+    .det-pane.on{display:block}
+    .det-dims{display:flex;flex-direction:column;gap:14px}
+    .det-drow{display:grid;grid-template-columns:145px 1fr 46px;align-items:center;gap:10px}
+    .det-dlabel{font-size:.77rem;font-weight:800;text-align:right;line-height:1.3}
+    .det-dtrack{background:rgba(255,255,255,.08);border-radius:50px;height:11px;overflow:hidden}
+    .det-dfill{height:100%;border-radius:50px;transition:width 1.2s ease}
+    .det-dval{font-size:.82rem;font-weight:900}
+    .det-dinterp{grid-column:1/4;font-size:.71rem;color:rgba(255,255,255,.3);padding:0 8px;margin-top:-8px}
+    .det-insight-box{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.11);border-radius:12px;padding:14px 18px;margin-top:18px}
+    .det-insight-ttl{font-size:.76rem;font-weight:900;color:var(--c1);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+    .det-insight-item{font-size:.79rem;color:var(--text2);margin-bottom:6px;padding-left:14px;position:relative}
+    .det-insight-item::before{content:'→';position:absolute;left:0;color:var(--c1)}
+    .plan-hdr{font-size:.79rem;color:var(--text3);margin-bottom:14px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:8px}
+    .plan-month{margin-bottom:22px}
+    .plan-month-h{font-size:.88rem;font-weight:900;color:var(--c1);background:rgba(0,212,255,.05);border-left:3px solid var(--c1);padding:8px 14px;border-radius:0 8px 8px 0;margin-bottom:10px}
+    .plan-sessions{display:flex;flex-direction:column;gap:7px}
+    .plan-sess{background:rgba(255,255,255,.024);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:13px 15px}
+    .plan-sess-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+    .plan-week-tag{background:rgba(123,47,255,.14);color:var(--c3);border:1px solid rgba(123,47,255,.22);border-radius:5px;padding:2px 8px;font-size:.67rem;font-weight:800;white-space:nowrap;flex-shrink:0}
+    .plan-dim-tag{border-radius:4px;padding:2px 7px;font-size:.66rem;font-weight:800;white-space:nowrap;flex-shrink:0}
+    .plan-sess-title{font-size:.83rem;font-weight:800;color:var(--text);flex:1;min-width:0}
+    .plan-sess-body{font-size:.75rem;color:var(--text3);line-height:1.55}
+    .plan-sess-obj{color:rgba(255,255,255,.45);margin-bottom:5px;font-style:italic}
+    .plan-sess-acts{padding-left:0;list-style:none;margin:0 0 5px}
+    .plan-sess-acts li{position:relative;padding-left:13px;margin-bottom:3px}
+    .plan-sess-acts li::before{content:'•';position:absolute;left:0;color:var(--c1)}
+    .plan-sess-out{font-size:.72rem;color:var(--c2);font-weight:700}
     /* Stats */
     .adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
     .astat{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);border-radius:13px;padding:16px 14px}
@@ -1315,7 +1363,7 @@ async function loadAdmin() {
         '<td style="color:var(--c4)">'+(r.puntaje_dim4||0)+'%</td>'+
         '<td style="color:var(--c5)">'+(r.puntaje_dim5||0)+'%</td>'+
         '<td style="color:var(--text3)">'+f+'</td>'+
-        '<td><button onclick="deleteRow(\''+r.id+'\')" title="Eliminar esta respuesta" style="background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:#ff4757;border-radius:7px;padding:4px 9px;font-size:.72rem;cursor:pointer;transition:.2s;font-family:var(--font)" onmouseover="this.style.background=\'rgba(255,71,87,.25)\'" onmouseout="this.style.background=\'rgba(255,71,87,.1)\'">🗑️</button></td>'+
+        '<td style="display:flex;gap:5px;align-items:center"><button onclick="viewDetail(\''+r.id+'\')" title="Ver perfil y plan" style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.28);color:#00d4ff;border-radius:7px;padding:4px 9px;font-size:.72rem;cursor:pointer;transition:.2s;font-family:var(--font)" onmouseover="this.style.background=\'rgba(0,212,255,.2)\'" onmouseout="this.style.background=\'rgba(0,212,255,.08)\'">👁 Ver</button><button onclick="deleteRow(\''+r.id+'\')" title="Eliminar esta respuesta" style="background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:#ff4757;border-radius:7px;padding:4px 9px;font-size:.72rem;cursor:pointer;transition:.2s;font-family:var(--font)" onmouseover="this.style.background=\'rgba(255,71,87,.25)\'" onmouseout="this.style.background=\'rgba(255,71,87,.1)\'">🗑️</button></td>'+
         '</tr>';
     }).join('');
 
@@ -1486,6 +1534,196 @@ function _doExportCSV(data, suffix) {
   a.click();
 }
 function exportCSV() { _doExportCSV(_adminData, 'todos'); }
+
+/* ════════════════════════════════════════════
+   DETAIL MODAL — perfil individual + plan
+   ════════════════════════════════════════════ */
+var _detIdx = 0;
+var _detTab = 0;
+
+/* Plantillas de sesiones por dimensión (Ana María) */
+var SESS_AM = {
+  1:{name:'Fundamentos IA',color:'#00d4ff',
+    low:{title:'Activación de IA: De usuaria ocasional a estratégica',obj:'Establecer rutina diaria de IA y dominar prompting para tu rol de Sales Manager.',acts:['Auditoría de herramientas disponibles: Copilot, ChatGPT, Gemini — cuáles usar primero','Práctica guiada: 10 prompts críticos para gestión de ventas y reporte de pipeline','Crear tu prompt kit personal para las tareas que más tiempo te consumen'],out:'Tu "Prompt Kit de Sales Manager" con 10 prompts listos para usar hoy'},
+    mid:{title:'Prompting avanzado: De resultados buenos a resultados sobresalientes',obj:'Dominar técnicas avanzadas de prompting para obtener resultados consistentes y de alta calidad.',acts:['Cadenas de prompts para análisis complejos de pipeline y forecast','Prompts con contexto, rol y formato estructurado para reportes ejecutivos','Biblioteca personal de prompts por tipo de tarea: seguimiento, análisis, comunicación'],out:'Protocolo de prompting documentado para las 5 tareas más críticas de tu rol'},
+    high:{title:'Referente de IA: Transferir conocimiento y liderar la adopción del equipo',obj:'Convertir tu dominio de IA en activo organizacional y posicionarte como referente.',acts:['Diseñar micro-taller de prompting de 30 min para tu equipo de asesores','Sistema de actualización continua: newsletters, comunidades y benchmarks de IA en ventas','Evaluar y recomendar nuevas herramientas IA relevantes para ventas B2B'],out:'Mini-guía de IA para el equipo lista para compartir y replicar'}},
+  2:{name:'Equipo con IA',color:'#7b2fff',
+    low:{title:'Gestión inteligente: Visibilidad total de tu equipo con IA',obj:'Integrar IA en el seguimiento diario de tus asesores para tener datos, no intuición.',acts:['Diseñar dashboard de seguimiento del equipo con IA: métricas clave por asesor','Templates de check-in semanal y mensajes de feedback generados con Copilot','Análisis de desempeño por asesor: detectar riesgos antes de cada reunión de pipeline'],out:'Template de gestión semanal del equipo con IA integrada y lista para usar'},
+    mid:{title:'Business Reviews potenciadas: Datos que convencen y generan acción',obj:'Transformar las Business Reviews en sesiones de alto impacto con análisis predictivo.',acts:['Preparar Business Reviews con análisis de pipeline y forecast asistido por IA','Identificar patrones de desempeño y riesgos con IA antes de cada reunión','Coaching personalizado por asesor basado en datos y scoring de IA'],out:'Protocolo de Business Review potenciada con IA, documentado y replicable'},
+    high:{title:'Cultura de IA en ventas: Tu equipo como referente en la organización',obj:'Instalar capacidades de IA en el equipo y medir el impacto en resultados comerciales.',acts:['Programa de adopción de IA para el equipo de asesores: fases y métricas','Comparativa antes/después de IA para demostrar ROI a la dirección','Rituales de equipo centrados en aprendizaje continuo y mejora con IA'],out:'Plan de adopción de IA para el equipo con métricas de éxito definidas'}},
+  3:{name:'Presentaciones',color:'#ff8c00',
+    low:{title:'Del dato crudo a la historia que convence: Comunicación ejecutiva con IA',obj:'Transformar datos de ventas en narrativas ejecutivas con IA, en la mitad del tiempo.',acts:['Copilot para PowerPoint: estructura y diseño de presentaciones ejecutivas en minutos','Framework de storytelling para reportes de pipeline y resultados trimestrales','Lenguaje ejecutivo: cómo hablar de IA y resultados a la alta dirección con credibilidad'],out:'Template de presentación ejecutiva de resultados de ventas listo para usar'},
+    mid:{title:'Presentaciones que mueven decisiones: Del informe al impacto real',obj:'Crear presentaciones de alto impacto que generan decisiones favorables.',acts:['Visualización avanzada de datos con IA: qué gráfica usar y por qué','Técnica "pirámide invertida" para estructurar comunicaciones ejecutivas','Anticipar y preparar respuestas a preguntas difíciles con simulación de IA'],out:'Tu próximo Business Review con narrativa y visualización potenciada por IA'},
+    high:{title:'Influencia ejecutiva: Comunicar transformación e inspirar acción organizacional',obj:'Usar tus habilidades de comunicación para liderar la narrativa de IA en la organización.',acts:['Comunicar el impacto financiero de la IA en lenguaje de negocio y ROI','Presentar roadmap de transformación IA al equipo directivo con business case','Construir credibilidad pública como referente de IA en tu industria'],out:'Presentación "Estado de la IA en Ventas" para tu organización lista para la dirección'}},
+  4:{name:'Automatización',color:'#00d48a',
+    low:{title:'Liberar tiempo estratégico: Tu primera automatización que cambia todo',obj:'Identificar y automatizar las tareas repetitivas que más tiempo te consumen cada semana.',acts:['Auditoría de tiempo: mapa de tareas repetitivas en tu semana típica como Sales Manager','Primera automatización en producción: generación de reportes de pipeline automáticos','Flujos básicos en Copilot para gestión de agenda y tareas recurrentes del equipo'],out:'Mapa de automatizaciones prioritarias + primera automatización activa y funcionando'},
+    mid:{title:'Pipeline inteligente: Del seguimiento manual a la gestión automatizada',obj:'Construir ecosistema de automatizaciones que gestione tu pipeline sin fricción.',acts:['Automatizar alertas de riesgo en oportunidades críticas del pipeline','Integrar CRM con IA para actualizaciones y seguimientos automáticos por asesor','Reportes ejecutivos semanales generados y enviados automáticamente'],out:'Tu pipeline con 3 automatizaciones activas y métricas de tiempo recuperado documentadas'},
+    high:{title:'Operaciones autónomas: El equipo de ventas en modo piloto inteligente',obj:'Diseñar sistema completo de automatización que libere al equipo para el trabajo estratégico.',acts:['Mapear y automatizar el journey completo: desde lead cualificado hasta cierre','Medir ROI de automatizaciones: horas ahorradas × valor/hora del equipo de ventas','Documentar el modelo de automatización para replicarlo en otros equipos o regiones'],out:'Manual de automatizaciones de ventas replicable para toda la organización'}},
+  5:{name:'Ecosistema IA',color:'#ff4757',
+    low:{title:'Mapa de tu transformación: Visión clara y primeros pasos con propósito',obj:'Construir visión clara de tu evolución con IA en los próximos 6-12 meses.',acts:['Panorama completo de IA para Sales Managers: qué existe y qué viene próximamente','Diseñar tu roadmap personal de adopción de IA paso a paso y con prioridades','Crear tu biblioteca inicial de prompts y artefactos reutilizables por dimensión'],out:'Tu Roadmap de Transformación IA personal para los próximos 6 meses'},
+    mid:{title:'Ecosistema personal coherente: Construir tu ventaja competitiva con IA',obj:'Integrar herramientas y flujos en un sistema personal coherente y potente.',acts:['Curar y organizar tu biblioteca de prompts, templates y artefactos por tipo de tarea','Conectar herramientas: Copilot + CRM + IA para flujo de trabajo unificado','Definir métricas de madurez IA para medir tu progreso mensualmente'],out:'Tu Ecosistema IA documentado: herramientas, flujos y biblioteca de artefactos'},
+    high:{title:'Embajadora de transformación: De usuaria avanzada a referente organizacional',obj:'Posicionarte como líder de transformación IA dentro y fuera de tu organización.',acts:['Publicar aprendizajes: artículo interno o LinkedIn sobre IA aplicada a ventas B2B','Proponer iniciativa de transformación IA de alto impacto a nivel de área o empresa','Conectar con comunidades de práctica de IA en ventas: grupos, eventos, podcasts'],out:'Propuesta formal de adopción de IA para tu equipo presentada a dirección con resultados'}}
+};
+
+var INT_AM = {
+  4:{title:'Revisión del primer mes: Sintetizar, ajustar y proyectar',obj:'Consolidar aprendizajes del mes 1 e identificar qué ajustar para el mes 2.',acts:['Autoevaluación: ¿Qué está funcionando? ¿Qué no? ¿Por qué? — diagnóstico honesto','Compartir 3 resultados concretos de IA con el equipo o la dirección','Definir los 3 objetivos clave para el mes 2 del programa de acompañamiento'],out:'Informe de progreso mes 1 + plan ajustado con metas claras para el mes 2'},
+  8:{title:'Taller de integración: IA en tu flujo de trabajo completo',obj:'Conectar todas las herramientas y flujos trabajados en un sistema integrado y coherente.',acts:['Mapear tu flujo de trabajo actual antes y después de IA: ¿cuánto ha cambiado?','Identificar brechas y oportunidades de integración que no habías visto antes','Diseñar el "día ideal" con IA como copiloto en cada momento de tu trabajo'],out:'Tu flujo de trabajo integrado con IA documentado y listo para aplicar esta semana'},
+  11:{title:'Proyecto de impacto: Aplicar todo lo aprendido en un reto real de tu rol',obj:'Ejecutar un proyecto real usando todas las capacidades IA desarrolladas en el programa.',acts:['Seleccionar un reto real: análisis de cartera, preparación de BRs, lanzamiento de iniciativa','Aplicar el stack completo de IA aprendido para resolverlo con excelencia ejecutiva','Documentar proceso, resultados y lecciones aprendidas como caso de éxito compartible'],out:'Caso de éxito documentado: el antes, durante y después de tu proyecto con IA'},
+  12:{title:'Graduación y siguiente nivel: Tu plan de continuidad de los próximos 6 meses',obj:'Celebrar logros, medir impacto y definir el camino de los próximos 6 meses.',acts:['Comparar diagnóstico inicial vs. capacidades actuales: evidencia tangible de transformación','Definir 5 hábitos IA que se quedan como parte permanente de tu trabajo','Co-diseñar el plan de los próximos 6 meses: qué aprender, aplicar, enseñar y liderar'],out:'Tu plan de continuidad de 6 meses + testimonio de transformación documentado y compartible'}
+};
+
+function viewDetail(id) {
+  if (!_adminData || !_adminData.length) return;
+  _detIdx = _adminData.findIndex(function(r){ return r.id === id; });
+  if (_detIdx < 0) _detIdx = 0;
+  document.getElementById('det-ov').classList.add('on');
+  _renderDet();
+}
+function closeDet() { document.getElementById('det-ov').classList.remove('on'); }
+function navDet(dir) {
+  _detIdx = Math.max(0, Math.min(_adminData.length - 1, _detIdx + dir));
+  _renderDet();
+}
+function switchDetTab(n) {
+  _detTab = n;
+  document.querySelectorAll('.det-tab').forEach(function(t, i){ t.classList.toggle('on', i === n); });
+  document.querySelectorAll('.det-pane').forEach(function(p, i){ p.classList.toggle('on', i === n); });
+}
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDet(); });
+
+function _renderDet() {
+  var r = _adminData[_detIdx];
+  var total = _adminData.length;
+  document.getElementById('det-prev').disabled = _detIdx === 0;
+  document.getElementById('det-next').disabled = _detIdx === total - 1;
+  document.getElementById('det-pos').textContent = (_detIdx + 1) + ' de ' + total;
+  document.getElementById('det-hname').textContent = r.nombre || 'Sin nombre';
+  var meta = [r.empresa, r.email, r.fecha_hora ? new Date(r.fecha_hora).toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'}) : null].filter(Boolean);
+  document.getElementById('det-hmeta').textContent = meta.join(' · ');
+  var sc = r.puntaje_total || 0;
+  var nv = r.nivel || '';
+  var isL = nv.includes('🚀') || nv.includes('Aumentada');
+  var isA = nv.includes('⚡') || nv.includes('Aceleración');
+  var col = isL ? 'var(--c1)' : isA ? 'var(--c3)' : 'var(--c5)';
+  var bg = isL ? 'rgba(0,212,255,.15)' : isA ? 'rgba(255,140,0,.15)' : 'rgba(255,71,87,.15)';
+  document.getElementById('det-snum').textContent = sc;
+  document.getElementById('det-snum').style.color = col;
+  document.getElementById('det-slv').textContent = nv;
+  document.getElementById('det-slv').style.cssText = 'background:'+bg+';color:'+col;
+
+  var ds = [r.puntaje_dim1||0, r.puntaje_dim2||0, r.puntaje_dim3||0, r.puntaje_dim4||0, r.puntaje_dim5||0];
+  var interp = [
+    ['Primeros pasos — oportunidad de transformación significativa con acompañamiento','Uso regular de herramientas — enfocarse en consistencia y casos de uso avanzados','Domina las herramientas clave — puede liderar la adopción en su entorno inmediato'],
+    ['El equipo aún no es gestionado con IA — alto potencial de impacto inmediato','Usa IA para gestión pero de forma parcial — profundizar en analytics y automatización','Gestiona el equipo con IA como estándar — referente en liderazgo digital de ventas'],
+    ['Presentaciones es un área de alto impacto pendiente de desarrollar','Comunica bien con IA — siguiente paso: storytelling ejecutivo y persuasión avanzada','Sus presentaciones generan impacto ejecutivo — puede enseñar este skill al equipo'],
+    ['La automatización puede liberar 5+ horas semanales — alta prioridad','Automatiza procesos clave — el siguiente nivel es crear sistemas integrados y medibles','Tiene flujos automatizados maduros — puede optimizar, escalar y documentar para otros'],
+    ['La visión estratégica de IA está en construcción — oportunidad de diferenciación','Ecosistema en desarrollo — enfocarse en integración, coherencia y medición de impacto','Su ecosistema IA es una ventaja competitiva — posicionarse como referente del sector']
+  ];
+  var dimsHTML = DIMS.map(function(dim, i) {
+    var li = ds[i] < 40 ? 0 : ds[i] < 70 ? 1 : 2;
+    return '<div class="det-drow">'+
+      '<div class="det-dlabel" style="color:'+dim.color+'">'+dim.short+'</div>'+
+      '<div class="det-dtrack"><div class="det-dfill" id="ddf'+i+'" style="width:0%;background:'+dim.color+'"></div></div>'+
+      '<div class="det-dval" style="color:'+dim.color+'">'+ds[i]+'%</div>'+
+      '<div class="det-dinterp">'+interp[i][li]+'</div>'+
+      '</div>';
+  }).join('');
+  var srt = ds.map(function(s,i){return{i:i,s:s};}).sort(function(a,b){return a.s-b.s;});
+  var wk = DIMS[srt[0].i], st = DIMS[srt[4].i], gap = srt[4].s - srt[0].s;
+  var insHTML = '<div class="det-insight-box"><div class="det-insight-ttl">💡 Insights clave</div>'+
+    '<div class="det-insight-item">Dimensión prioritaria: <strong style="color:'+wk.color+'">'+wk.name+'</strong> ('+srt[0].s+'%) — primera enfocada en el plan de acompañamiento</div>'+
+    '<div class="det-insight-item">Dimensión más fuerte: <strong style="color:'+st.color+'">'+st.name+'</strong> ('+srt[4].s+'%) — palanca para acelerar las áreas más débiles</div>'+
+    (gap > 40 ? '<div class="det-insight-item">Brecha de '+gap+' puntos entre dimensiones — el plan prioriza nivelar antes de escalar</div>'
+              : '<div class="det-insight-item">Perfil equilibrado (brecha '+gap+' pts) — el plan puede enfocarse en profundidad, no en remediación</div>')+
+    '</div>';
+  document.getElementById('det-profile').innerHTML = '<div class="det-dims">'+dimsHTML+'</div>'+insHTML;
+  setTimeout(function(){ ds.forEach(function(v,i){ var el=document.getElementById('ddf'+i); if(el) el.style.width=v+'%'; }); }, 80);
+
+  document.getElementById('det-plan').innerHTML = _buildPlan(r, ds, srt);
+  switchDetTab(0);
+}
+
+function _lvl(s){ return s < 40 ? 'low' : s < 70 ? 'mid' : 'high'; }
+function _advLvl(s){ return s < 40 ? 'mid' : 'high'; }
+
+function _sessCard(wk, dimIdx, lvl, isAdv) {
+  var d = SESS_AM[dimIdx + 1];
+  var s = d[lvl];
+  return '<div class="plan-sess">'+
+    '<div class="plan-sess-h">'+
+      '<span class="plan-week-tag">Semana '+wk+'</span>'+
+      '<span class="plan-dim-tag" style="background:'+d.color+'20;color:'+d.color+';border:1px solid '+d.color+'44">'+d.name+'</span>'+
+      '<span class="plan-sess-title">'+s.title+(isAdv ? ' — nivel avanzado' : '')+'</span>'+
+    '</div>'+
+    '<div class="plan-sess-body">'+
+      '<div class="plan-sess-obj">🎯 '+s.obj+'</div>'+
+      '<ul class="plan-sess-acts">'+s.acts.map(function(a){return '<li>'+a+'</li>';}).join('')+'</ul>'+
+      '<div class="plan-sess-out">✅ '+s.out+'</div>'+
+    '</div></div>';
+}
+function _intCard(wk, key) {
+  var s = INT_AM[key];
+  return '<div class="plan-sess">'+
+    '<div class="plan-sess-h">'+
+      '<span class="plan-week-tag">Semana '+wk+'</span>'+
+      '<span class="plan-dim-tag" style="background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1)">Integración</span>'+
+      '<span class="plan-sess-title">'+s.title+'</span>'+
+    '</div>'+
+    '<div class="plan-sess-body">'+
+      '<div class="plan-sess-obj">🎯 '+s.obj+'</div>'+
+      '<ul class="plan-sess-acts">'+s.acts.map(function(a){return '<li>'+a+'</li>';}).join('')+'</ul>'+
+      '<div class="plan-sess-out">✅ '+s.out+'</div>'+
+    '</div></div>';
+}
+
+function _buildPlan(r, ds, srt) {
+  var hdr = '<div class="plan-hdr">Plan personalizado para <strong style="color:var(--c1)">'+
+    (r.nombre||'la participante')+'</strong> · Score actual: <strong style="color:var(--c1)">'+(r.puntaje_total||0)+'/100</strong> · '+
+    'Dimensión prioritaria: <strong style="color:'+DIMS[srt[0].i].color+'">'+DIMS[srt[0].i].short+'</strong></div>';
+  return hdr+
+    '<div class="plan-month"><div class="plan-month-h">📅 Mes 1 — Diagnóstico y Activación (Semanas 1–4)</div><div class="plan-sessions">'+
+      _sessCard(1, srt[0].i, _lvl(srt[0].s), false)+
+      _sessCard(2, srt[1].i, _lvl(srt[1].s), false)+
+      _sessCard(3, srt[2].i, _lvl(srt[2].s), false)+
+      _intCard(4, 4)+
+    '</div></div>'+
+    '<div class="plan-month"><div class="plan-month-h">🔥 Mes 2 — Integración y Práctica (Semanas 5–8)</div><div class="plan-sessions">'+
+      _sessCard(5, srt[3].i, _lvl(srt[3].s), false)+
+      _sessCard(6, srt[4].i, _lvl(srt[4].s), false)+
+      _sessCard(7, srt[0].i, _advLvl(srt[0].s), true)+
+      _intCard(8, 8)+
+    '</div></div>'+
+    '<div class="plan-month"><div class="plan-month-h">🚀 Mes 3 — Liderazgo y Sostenibilidad (Semanas 9–12)</div><div class="plan-sessions">'+
+      _sessCard(9, srt[1].i, _advLvl(srt[1].s), true)+
+      _sessCard(10, srt[2].i, _advLvl(srt[2].s), true)+
+      _intCard(11, 11)+
+      _intCard(12, 12)+
+    '</div></div>';
+}
 </script>
+<!-- ─── DETAIL MODAL ─── -->
+<div class="det-ov" id="det-ov" onclick="if(event.target===this)closeDet()">
+  <div class="det-box">
+    <button class="det-close" onclick="closeDet()">✕</button>
+    <div class="det-nav-row">
+      <button class="det-nav-btn" id="det-prev" onclick="navDet(-1)">← Anterior</button>
+      <span class="det-nav-pos" id="det-pos">1 de 1</span>
+      <button class="det-nav-btn" id="det-next" onclick="navDet(1)">Siguiente →</button>
+    </div>
+    <div class="det-head">
+      <div><div class="det-hname" id="det-hname"></div><div class="det-hmeta" id="det-hmeta"></div></div>
+      <div class="det-hbadge">
+        <div class="det-hbadge-num" id="det-snum">—</div>
+        <div class="det-hbadge-lv" id="det-slv"></div>
+      </div>
+    </div>
+    <div class="det-tabs">
+      <button class="det-tab on" onclick="switchDetTab(0)">👤 Perfil completo</button>
+      <button class="det-tab" onclick="switchDetTab(1)">🗓 Plan de 3 meses</button>
+    </div>
+    <div class="det-pane on" id="det-profile"></div>
+    <div class="det-pane" id="det-plan"></div>
+  </div>
+</div>
 </body>
 </html>
